@@ -13,6 +13,7 @@ public class MainGame implements Game {
 
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
+	public static int LEVEL = 1;
 	
 	public static MainGame main;
 	
@@ -73,6 +74,8 @@ public class MainGame implements Game {
 				
 			}
 		});
+		
+		LevelHandler.load(LEVEL);
 		
 		d.getWindow().setResizable(false);
 		d.getWindow().setVisible(true);
