@@ -44,6 +44,10 @@ public class MainGame implements Game {
 				if (key == Keys.D || key == Keys.RIGHT) {
 					Player.mr = true;
 				}
+				
+				if (key == Keys.F1) {
+					Enemy.list.get(0).kill();
+				}
 			}
 
 			@Override
@@ -69,10 +73,6 @@ public class MainGame implements Game {
 				
 			}
 		});
-		
-		Enemy.spawn();
-		Enemy.spawn();
-		Enemy.spawn();
 		
 		d.getWindow().setResizable(false);
 		d.getWindow().setVisible(true);
