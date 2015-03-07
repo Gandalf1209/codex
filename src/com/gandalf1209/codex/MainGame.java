@@ -77,6 +77,8 @@ public class MainGame implements Game {
 			}
 		});
 		
+		Texture.init();
+		
 		LevelHandler.load(LEVEL);
 		
 		d.getWindow().setResizable(false);
@@ -89,8 +91,7 @@ public class MainGame implements Game {
 	public void render(GraphicsX g) {
 		g.setBGColor(g.hex("#72DB92"));
 		
-		g.setColor(g.hex("#13456E"));
-		g.fillRect(Player.x, Player.y, 50, 50);
+		g.addImage(Texture.getTexture("Player"), Player.x, Player.y, 50, 50);
 		
 		g.setColor(g.hex("#C2384B"));
 		for (int i = 0; i < Enemy.list.size(); i++) {
