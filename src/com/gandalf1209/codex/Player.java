@@ -26,4 +26,16 @@ public class Player {
 		}
 	}
 	
+	public static void attack() {
+		for (int i = 0; i < Enemy.list.size(); i++) {
+			Enemy e = Enemy.list.get(i);
+			if (e.getX() + 100 > x &&
+					e.getX() - 100 < x &&
+					e.getY() + 100 > y &&
+					e.getY() - 100 < y) {
+				e.kill();
+			}
+		}
+	}
+	
 }

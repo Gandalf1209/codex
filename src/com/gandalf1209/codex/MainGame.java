@@ -47,9 +47,8 @@ public class MainGame implements Game {
 				if (key == Keys.D || key == Keys.RIGHT) {
 					Player.mr = true;
 				}
-				
-				if (key == Keys.F1) {
-					Enemy.list.get(0).kill();
+				if (key == Keys.Q || key == Keys.SHIFT) {
+					Player.attack();
 				}
 			}
 
