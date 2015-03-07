@@ -3,6 +3,8 @@ package com.gandalf1209.codex;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import com.gandalf1209.codex.scene.Scene;
+import com.gandalf1209.codex.scene.SceneObject;
 import com.gandalf1209.yge2.engine.Application;
 import com.gandalf1209.yge2.engine.Game;
 import com.gandalf1209.yge2.graphics.Display;
@@ -94,6 +96,14 @@ public class MainGame implements Game {
 		for (int i = 0; i < Enemy.list.size(); i++) {
 			Enemy e = Enemy.list.get(i);
 			g.fillOval(e.getX(), e.getY(), 50, 50);
+		}
+		
+		for (int i = 0; i < Scene.list.size(); i++) {
+			SceneObject so = Scene.list.get(i);
+			if (so.getName().equals("Tree")) {
+				g.setColor(g.hex("#2E5C33"));
+				g.fillRect(so.getX(), so.getY(), 40, 40);
+			}
 		}
 	}
 

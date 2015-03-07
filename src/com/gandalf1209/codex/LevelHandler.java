@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import com.gandalf1209.codex.scene.Tree;
 import com.gandalf1209.yge2.util.CrashHandler;
 
 public class LevelHandler {
@@ -19,6 +20,15 @@ public class LevelHandler {
 				String[] data = line.split("=");
 				if (data[0].equalsIgnoreCase("enemy")) {
 					enemiesToSpawn = Integer.parseInt(data[1]);
+				}
+				if (line.startsWith("[Scene]")) {
+					String[] soData = line.split(" ");
+					String name = soData[1];
+					int x = Integer.parseInt(soData[2]);
+					int y = Integer.parseInt(soData[3]);
+					if (name.equals("Tree")) {
+						new Tree(x, y);
+					}
 				}
 			}
 			executeLevel();
