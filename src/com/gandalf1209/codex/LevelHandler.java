@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import com.gandalf1209.codex.scene.Bush;
+import com.gandalf1209.codex.scene.Scene;
 import com.gandalf1209.codex.scene.Tree;
 import com.gandalf1209.yge2.util.CrashHandler;
 
@@ -12,6 +14,7 @@ public class LevelHandler {
 	private static int enemiesToSpawn;
 
 	public static void load(int level) {
+		Scene.list.clear();
 		InputStream in = LevelHandler.class.getResourceAsStream("/levels/" + level + ".level");
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 		try {
@@ -30,6 +33,9 @@ public class LevelHandler {
 					int h = Integer.parseInt(soData[5]);
 					if (name.equals("Tree")) {
 						new Tree(x, y, w, h);
+					}
+					if (name.equals("Bush")) {
+						new Bush(x, y, w, h);
 					}
 				}
 			}

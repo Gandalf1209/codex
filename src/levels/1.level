@@ -1,3 +1,8 @@
 enemy=3
+
 [Scene] Tree 100 100 100 100
 [Scene] Tree 500 400 75 75
+
+[Scene] Bush 700 100 50 50
+[Scene] Bush 650 150 50 50
+[Scene] Bush 725 90 50 50
