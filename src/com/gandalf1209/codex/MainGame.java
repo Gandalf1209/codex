@@ -2,6 +2,7 @@ package com.gandalf1209.codex;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import com.gandalf1209.codex.scene.Scene;
 import com.gandalf1209.codex.scene.SceneObject;
@@ -83,12 +84,18 @@ public class MainGame implements Game {
 		d.getWindow().setResizable(false);
 		d.getWindow().setVisible(true);
 		
-		d.initTime(40);
+		d.start(30);
 	}
 	
 	@Override
 	public void render(GraphicsX g) {
 		g.setBGColor(g.hex("#72DB92"));
+		
+		for (int i = 0; i < Scene.list.size(); i++) {
+			SceneObject so = Scene.list.get(i);
+			BufferedImage img = Texture.getTexture(so.getName());
+			g.addImage(img, so.getX(), so.getY(), so.getW(), so.getH());
+		}
 		
 		g.addImage(Texture.getTexture("Player"), Player.x, Player.y, 50, 50);
 		
@@ -96,14 +103,6 @@ public class MainGame implements Game {
 		for (int i = 0; i < Enemy.list.size(); i++) {
 			Enemy e = Enemy.list.get(i);
 			g.fillOval(e.getX(), e.getY(), 50, 50);
-		}
-		
-		for (int i = 0; i < Scene.list.size(); i++) {
-			SceneObject so = Scene.list.get(i);
-			if (so.getName().equals("Tree")) {
-				g.setColor(g.hex("#2E5C33"));
-				g.fillRect(so.getX(), so.getY(), 40, 40);
-			}
 		}
 	}
 

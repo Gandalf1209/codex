@@ -26,8 +26,10 @@ public class LevelHandler {
 					String name = soData[1];
 					int x = Integer.parseInt(soData[2]);
 					int y = Integer.parseInt(soData[3]);
+					int w = Integer.parseInt(soData[4]);
+					int h = Integer.parseInt(soData[5]);
 					if (name.equals("Tree")) {
-						new Tree(x, y);
+						new Tree(x, y, w, h);
 					}
 				}
 			}

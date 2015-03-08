@@ -15,6 +15,8 @@ public class Texture {
 	public static BufferedImage getTexture(String name) {
 		BufferedImage img = null;
 		img = gl.loadGraphic(name + ".png");
+		if (img == null)
+			img = gl.loadGraphic("Missing.png");
 		return img;
 	}
 	
